@@ -43,7 +43,7 @@ services:
      - "9180:9180"
      - "9100:9100"
     volumes:
-     - ./data/scylla/data:/var/lib/scylla
+     - /Users/kevin/bigdata/janusgraph/scylla/data:/var/lib/scylla
 
   index:
     image: docker.elastic.co/elasticsearch/elasticsearch:6.4.0
@@ -52,4 +52,4 @@ services:
      - "9300:9300"
     user: "1000"
     volumes:
-     - ./data/elasticsearch/data:/usr/share/elasticsearch/data
+     - /Users/kevin/bigdata/janusgraph/elasticsearch/data:/usr/share/elasticsearch/data
