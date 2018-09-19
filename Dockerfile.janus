@@ -1,14 +1,14 @@
 FROM openjdk:8-jdk
 LABEL maintainer="Markus Mayer <widemeadows@gmail.com>"
-
 ARG version=0.3.0
 ARG hadoop=hadoop2
-
+RUN mkdir /workspace
+COPY janusgraph-$version-$hadoop.zip /workspace/janusgraph-$version-$hadoop.zip
 RUN apt-get update && \
     apt-get install -y wget unzip htop && \
-    mkdir /workspace && \
+#mkdir /workspace && \
     cd /workspace && \
-    wget https://github.com/JanusGraph/janusgraph/releases/download/v$version/janusgraph-$version-$hadoop.zip && \
+#wget https://github.com/JanusGraph/janusgraph/releases/download/v$version/janusgraph-$version-$hadoop.zip && \
     unzip janusgraph-$version-$hadoop.zip && \
     rm janusgraph-$version-$hadoop.zip && \
     mv janusgraph-* janusgraph
